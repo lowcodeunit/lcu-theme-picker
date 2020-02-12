@@ -1,0 +1,19 @@
+.theme-picker-card {
+  cursor: pointer;
+  display: inline-block;
+  margin: 5px;
+  min-height: 250px;
+
+  .theme-picker-card-avatar {
+
+    .mat-icon {
+      font-size: 40px;
+    }
+  }
+
+  .theme-picker-card-content {
+    text-align: justify;
+    padding: 5px;
+    line-height: 20px;
+  }
+}
