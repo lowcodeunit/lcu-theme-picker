@@ -1,13 +1,14 @@
-<mat-card theme-picker id="themePickerCard{{card.ThemePickerId}}" class="theme-picker-card" (click)="SelectCard(card.Url)">
-    <mat-card-header>
-        <div mat-card-avatar class="theme-picker-card-avatar">
-        <mat-icon color="primary">{{card.Icon}}</mat-icon>
-        </div>
-        <mat-card-title class="paragraph-title">{{card.Title}}</mat-card-title>
-        <mat-card-subtitle class="plain-text">{{card.Subtitle}}</mat-card-subtitle>
-    </mat-card-header>
-    <mat-card-content class="theme-picker-card-content">
-        {{card.Content}}
-    </mat-card-content>
-</mat-card>
-  
+<span fxFlex="nogrow">
+  <button mat-icon-button [matMenuTriggerFor]="menu">
+    <mat-icon>format_color_fill</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <div *ngFor="let theme of Themes">
+      <div fxLayout="row" fxLayoutGap="10px" fxFlex fxLayoutAlign="start center" mat-menu-item
+        (click)="PickTheme(theme.Color)">
+        <mat-icon [ngClass]="theme.ColorSwatch">{{theme.Icon}}</mat-icon>
+        <span>{{theme.Label}}</span>
+      </div>
+    </div>
+  </mat-menu>
+</span>

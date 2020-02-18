@@ -23,7 +23,6 @@ export class ThemePickerManagerContext extends StateManagerContext<ThemePickerMo
             Type: 'get-theme-picker-by-id'
         });
     }
-    
     protected async loadStateKey() {
         return 'main';
     }
