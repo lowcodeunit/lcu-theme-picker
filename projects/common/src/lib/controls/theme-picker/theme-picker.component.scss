@@ -1,19 +1,33 @@
-.theme-picker-card {
-  cursor: pointer;
-  display: inline-block;
-  margin: 5px;
-  min-height: 250px;
+@import "../../../../../../node_modules/@lcu/common/assets/theming/fathym_themes";
 
-  .theme-picker-card-avatar {
+.color-swatch-arctic {
+  color: mat-color($fathym-arctic-primary, 500) !important;
+}
 
-    .mat-icon {
-      font-size: 40px;
-    }
-  }
+.color-swatch-contrast {
+  color: mat-color($fathym-contrast-primary, 500) !important;
+}
 
-  .theme-picker-card-content {
-    text-align: justify;
-    padding: 5px;
-    line-height: 20px;
-  }
+.color-swatch-cool-candy {
+  color: mat-color($fathym-cool-candy-primary, 500) !important;
+}
+
+.color-swatch-flipper {
+  color: mat-color($fathym-flipper-primary, 500) !important;
+}
+
+.color-swatch-ice {
+  color: mat-color($fathym-ice-primary, 500) !important;
+}
+
+.color-swatch-sea-green {
+  color: mat-color($fathym-sea-green-primary, 500) !important;
+}
+
+.color-swatch-white-mint {
+  color: mat-color($fathym-white-mint-primary, 500) !important;
+}
+
+.color-swatch-ivy {
+  color: mat-color($fathym-ivy-primary, 500) !important;
 }
