@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { ThemePickerModel } from '../../models/theme-picker.model';
+import { Component, OnInit, Input } from '@angular/core';
 import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
+import { ThemePickerModel } from '../../models/theme-picker.model';
 import { ThemeColorPickerService } from '@lcu/common';
 
 @Component({
@@ -9,23 +9,15 @@ import { ThemeColorPickerService } from '@lcu/common';
   styleUrls: ['./theme-picker.component.scss']
 })
 export class ThemePickerComponent implements OnInit {
-  public Cards: ThemePickerModel[];
-  public ThemeClass: BehaviorSubject<string>;
-  public Themes: Array<any>;
-
+  @Input() public Themes: Array<ThemePickerModel>;
 
   constructor(
     protected themeService: ThemeColorPickerService,
   ) {}
 
   public ngOnInit(): void {
-    this.resetTheme();
     this.setThemes();
    }
-
-   protected resetTheme(): void {
-    this.ThemeClass = this.themeService.GetColorClass();
-  }
 
   public PickTheme(color: string): void {
     this.themeService.SetColorClass(`fathym-${color}-theme`);

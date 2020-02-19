@@ -6,14 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  public Title = 'Welcome to the LCU-Starter-App';
+  public Title = 'Welcome to the LCU-Theme-Picker';
 
   constructor() { }
 
-  public ngOnInit(): void {}
-
-
-  public DisplayDetails(): void {
-    console.log('DisplayDetails()');
-  }
+  public ngOnInit(): void { }
+  
 }

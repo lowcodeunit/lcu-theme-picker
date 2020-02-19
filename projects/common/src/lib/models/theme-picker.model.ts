@@ -1,6 +1,7 @@
 export class ThemePickerModel {
-    public ThemePickerId: number;
-    public Content: string;
+    public Color: string;
+    public ColorSwatch: string;
     public Icon: string;
-    public Loading?: boolean;
+    public Label: string;
+    public Value: string;
 }

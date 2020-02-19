@@ -1,49 +1,45 @@
 import { Directive, OnInit, ElementRef, HostListener, Renderer2 } from '@angular/core';
 import { ThemeColorPickerService } from '@lcu/common';
+import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 
 @Directive({
-  selector: '[theme-picker]'
+  selector: '[lcu-theme-picker-class]'
 })
 export class ThemePickerDirective implements OnInit {
-
-  private currentColor: string;
+  private currentTheme: string;
+  private themeClass: BehaviorSubject<string>;
 
   constructor(
     private elRef: ElementRef,
     private renderer: Renderer2,
     private themeService: ThemeColorPickerService
-  ) { }
-
-  @HostListener('mouseenter') onMouseEnter() {
-    this.hoverEffect(this.getThemeColor(), 'underline');
-  }
-
-  @HostListener('mouseleave') onMouseLeave() {
-    this.hoverEffect('', 'initial');
+  ) {
+    this.resetTheme();
+    this.themeClass.subscribe(
+      (value: string) => {
+        this.updateThemeClass(value);
+      }
+    );
   }
 
   public ngOnInit(): void {
-    this.currentColor = this.getThemeColor();
+    this.currentTheme = this.themeClass.value;
   }
 
-  private getThemeColor(): string {
-    const theme = this.themeService.GetColorClass().value;
-    return 'color-swatch-' + theme.substring(theme.indexOf('-') + 1, theme.lastIndexOf('-'));
+  private resetTheme(): void {
+    this.themeClass = this.themeService.GetColorClass();
   }
 
-  private hoverEffect(color: string, decoration: string): void {
-    const title = this.elRef.nativeElement.querySelector('.mat-card-title');
-    this.renderer.setStyle(title, 'text-decoration', decoration);
-
-    if (!color && this.currentColor) {
-      this.renderer.removeClass(title, this.currentColor);
-    } else if (color !== this.currentColor) {
-      this.renderer.removeClass(title, this.currentColor);
+  private updateThemeClass(theme: string): void {
+    if (this.currentTheme) {
+      this.renderer.removeClass(this.elRef.nativeElement, this.currentTheme);
+    } else if (theme !== this.currentTheme) {
+      this.renderer.removeClass(this.elRef.nativeElement, this.currentTheme);
     }
 
-    if (color) {
-      this.renderer.addClass(title, color);
-      this.currentColor = color;
+    if (theme) {
+      this.renderer.addClass(this.elRef.nativeElement, theme);
+      this.currentTheme = theme;
     }
   }
 
