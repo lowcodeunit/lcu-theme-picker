@@ -9,7 +9,7 @@
         "demo:lcu": "npm run build:common && npm run build:lcu && npm run start:demo",
         "deploy": "npm version patch && npm run deploy:all",
         "deploy:all": "npm run deploy:common && npm run deploy:lcu && npm run deploy:demo",
-        "deploy:common": "npm version patch --prefix projects/common && npm run build:common && npm publish ./dist/common --access public",
+        "deploy:common": "npm version patch --prefix projects/common && npm run build:common && npm run copy:assets && npm publish ./dist/common --access public",
         "deploy:demo": "npm version patch --prefix projects/demo && npm run build:demo && npm publish ./dist/demo --access public",
         "deploy:lcu": "npm version patch --prefix projects/lcu && npm run build:lcu && npm publish ./dist/lcu --access public",
         "ng": "ng",
@@ -22,7 +22,8 @@
         "build": "npm run build:common && npm run build:lcu",
         "test": "ng test",
         "lint": "ng lint",
-        "e2e": "ng e2e"
+        "e2e": "ng e2e",
+        "copy:assets": "cpx \"./projects/common/assets/**/*\" \"./dist/common/assets/\""
     },
     "private": false,
     "dependencies": {
@@ -62,6 +63,7 @@
         "@types/jasminewd2": "~2.0.3",
         "@types/node": "~8.9.4",
         "codelyzer": "^5.2.1",
+        "cpx": "^1.5.0",
         "concat-glob-cli": "^0.1.0",
         "jasmine-core": "~3.4.0",
         "jasmine-spec-reporter": "~4.2.1",
