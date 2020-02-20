@@ -20,6 +20,7 @@ export class ThemePickerComponent implements OnInit {
    }
 
   public PickTheme(color: string): void {
+    console.log('PickTheme() color: ', color);
     this.themeService.SetColorClass(`fathym-${color}-theme`);
   }
 
