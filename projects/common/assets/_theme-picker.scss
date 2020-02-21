@@ -3,7 +3,7 @@
 @import "~@lcu/common/assets/theming/fathym_themes";
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&display=swap");
 
-$fathym-theme: fathym-ivy-theme();
+// $fathym-theme: fathym-contrast-theme();
 
 @mixin opacity($opacity) {
   opacity: $opacity;
@@ -31,55 +31,55 @@ $fathym-theme: fathym-ivy-theme();
   }
 }
 
-@mixin set-theme($value) {
-    $fathym-theme: $value !global;
-}
+// @mixin set-theme($value) {
+//     $fathym-theme: $value !global;
+// }
 
 @mixin fathym-themes() {
     .fathym-arctic-theme {
-        @include set-theme(fathym-arctic-theme(true));
+        $fathym-theme: fathym-arctic-theme(true) !global;
         @include theme-setup($fathym-theme);
         @include primary-logo(thinky-full-logo, $fathym-theme, 1);
     }
 
     .fathym-contrast-theme {
-        @include set-theme(fathym-contrast-theme(true));
+        $fathym-theme: fathym-contrast-theme(true) !global;
         @include theme-setup($fathym-theme);
         @include primary-logo(thinky-full-logo, $fathym-theme, 1);
     }
 
     .fathym-cool-candy-theme {
-        @include set-theme(fathym-cool-candy-theme(true));
+        $fathym-theme: fathym-cool-candy-theme(true) !global;
         @include theme-setup($fathym-theme);
         @include primary-logo(thinky-full-logo, $fathym-theme, 1);
     }
 
     .fathym-flipper-theme {
-        @include set-theme(fathym-flipper-theme(true));
+        $fathym-theme: fathym-flipper-theme(true) !global;
         @include theme-setup($fathym-theme);
         @include primary-logo(thinky-full-logo, $fathym-theme, 1);
     }
 
     .fathym-ice-theme {
-        @include set-theme(fathym-ice-theme());
+        $fathym-theme: fathym-ice-theme() !global;
         @include theme-setup($fathym-theme);
         @include primary-logo(thinky-full-logo, $fathym-theme, 1);
     }
 
     .fathym-sea-green-theme {
-        @include set-theme(fathym-sea-green-theme(true));
+        $fathym-theme: fathym-sea-green-theme(true) !global;
         @include theme-setup($fathym-theme);
         @include primary-logo(thinky-full-logo, $fathym-theme, 1);
     }
 
     .fathym-white-mint-theme {
-        @include set-theme(fathym-white-mint-theme());
+        $fathym-theme: fathym-white-mint-theme() !global;
         @include theme-setup($fathym-theme);
         @include primary-logo(thinky-full-logo, $fathym-theme, 1);
     }
 
     .fathym-ivy-theme {
-        @include set-theme(fathym-ivy-theme());
+        $fathym-theme: fathym-ivy-theme() !global;
         @include theme-setup($fathym-theme);
         @include primary-logo(thinky-full-logo, $fathym-theme, 1);
     }

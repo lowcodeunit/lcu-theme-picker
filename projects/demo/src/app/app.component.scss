@@ -53,6 +53,10 @@
     justify-content: center;
     padding: 10px;
 
+    .mat-card {
+      background-color: mat-color($primary);
+    }
+
     .example-header-image {
       background-image: url('https://s1.r29static.com/bin/entry/700/1554,0,1667,2000/720x864,85/1902098/image.webp');
       background-size: cover;
