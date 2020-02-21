@@ -17,7 +17,7 @@ import { ThemePickerDirective } from './directives/theme-picker.directive';
   entryComponents: []
 })
 export class LcuThemePickerModule {
-  static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders<LcuThemePickerModule> {
     return {
       ngModule: LcuThemePickerModule,
       providers: []
